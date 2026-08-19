@@ -25,13 +25,14 @@ export default function Home() {
             We create thoughtful architectural and interior spaces
             that combine functionality, character and timeless design.
           </p>
-Cha
-          <a
-            href="/contact"
-            className="mt-8 inline-block border border-white px-7 py-4 text-xl uppercase tracking-wider hover:bg-white hover:text-black"
-          >
-            Start a Project
-          </a>
+          <div className="mt-10">
+            <a
+              href="/contact"
+              className="inline-block border border-white px-7 py-4 text-xl uppercase tracking-wider hover:bg-white hover:text-black"
+            >
+              Start a Project
+            </a>
+          </div>
         </div>
       </section>
 
