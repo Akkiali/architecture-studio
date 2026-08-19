@@ -100,7 +100,7 @@ export default function Home() {
               className="group overflow-hidden"
             >
               <div className="relative overflow-hidden">
-                <p className="text-xl uppercase tracking-[0.1em] text-gray-500">
+                <p className="mb-3 text-xs font-medium uppercase tracking-[0.28em] text-gray-500">
                   {project.category}
                 </p>
                 <Image
@@ -114,14 +114,12 @@ export default function Home() {
                 <div className="absolute inset-0 bg-black/10 transition-colors duration-500 group-hover:bg-black/30" />
               </div>
 
-              <div className="mt-5 flex items-start justify-between gap-4">
-
-
-                <h3 className="mt-2 text-2xl font-medium md:text-3xl">
+              <div className="mt-5 flex items-baseline justify-between gap-4 border-t border-gray-800 pt-4">
+                <h3 className="text-2xl leading-tight md:text-3xl">
                   {project.title}
                 </h3>
 
-                <p className="mt-1 text-lg text-gray-400">
+                <p className="shrink-0 text-xs uppercase tracking-[0.18em] text-gray-500">
                   {project.location}
                 </p>
 
