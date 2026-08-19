@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 
@@ -8,8 +8,21 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export default function Navbar() {
   const [menu, setMenu] = useState<string | null>(null);
+  const navbarRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    function closeMenu(event: PointerEvent) {
+      if (navbarRef.current && !navbarRef.current.contains(event.target as Node)) {
+        setMenu(null);
+      }
+    }
+
+    document.addEventListener("pointerdown", closeMenu);
+    return () => document.removeEventListener("pointerdown", closeMenu);
+  }, []);
+
   return (
-    <nav className="flex min-h-24 items-center justify-between border-b border-gray-800 px-6 py-6 md:px-12">
+    <nav ref={navbarRef} className="flex min-h-24 items-center justify-between border-b border-gray-800 px-6 py-6 md:px-12">
       <Link href="/" className="brand-mark group font-heading text-4xl font-medium tracking-[0.18em] transition-opacity hover:opacity-60 md:text-5xl">
         STUDIO<span className="transition-colors duration-300 group-hover:text-[#d6b36a]">Z.</span>
       </Link>
@@ -33,13 +46,13 @@ export default function Navbar() {
           </button>
           {menu === "projects" && (
             <div className="absolute left-0 top-10 z-20 w-48 border border-gray-800 bg-[#050505] p-4">
-              <a href="#" className="block py-2 hover:opacity-50">
+              <a href="#" onClick={() => setMenu(null)} className="block py-2 hover:opacity-50">
                 All Projects
               </a>
-              <a href="#" className="block py-2 hover:opacity-50">
+              <a href="#" onClick={() => setMenu(null)} className="block py-2 hover:opacity-50">
                 Residential
               </a>
-              <a href="#" className="block py-2 hover:opacity-50">
+              <a href="#" onClick={() => setMenu(null)} className="block py-2 hover:opacity-50">
                 Commercial
               </a>
             </div>
@@ -57,16 +70,16 @@ export default function Navbar() {
           </button>
           {menu === "services" && (
             <div className="absolute left-0 top-10 z-20 w-52 border border-gray-800 bg-[#050505] p-4">
-              <a href="#" className="block py-2 hover:opacity-50">
+              <a href="#" onClick={() => setMenu(null)} className="block py-2 hover:opacity-50">
                 Architecture
               </a>
-              <a href="#" className="block py-2 hover:opacity-50">
+              <a href="#" onClick={() => setMenu(null)} className="block py-2 hover:opacity-50">
                 Interior Design
               </a>
-              <a href="#" className="block py-2 hover:opacity-50">
+              <a href="#" onClick={() => setMenu(null)} className="block py-2 hover:opacity-50">
                 Space Planning
               </a>
-              <a href="#" className="block py-2 hover:opacity-50">
+              <a href="#" onClick={() => setMenu(null)} className="block py-2 hover:opacity-50">
                 Renovation
               </a>
             </div>
