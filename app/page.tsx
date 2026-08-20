@@ -36,7 +36,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-6 py-12 md:px-12 md:py-32">
+      <section id="services" className="px-6 py-12 md:px-12 md:py-32">
         <p className="text-lg uppercase tracking-[0.3em] text-gray-500">
           Our Services
         </p>
@@ -77,7 +77,7 @@ export default function Home() {
         </div>
       </section>
       {/* {image section} */}
-      <section className="px-6 py-20 md:px-12 md:py-24">
+      <section id="projects" className="px-6 py-20 md:px-12 md:py-24">
         <p className="text-lg uppercase tracking-[0.3em] text-gray-400">
           Selected Projects
         </p>
@@ -94,32 +94,37 @@ export default function Home() {
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <div
               key={project.title}
-              className="group overflow-hidden"
+              className="group rounded-lg border border-gray-800 p-4 transition-colors duration-300 hover:border-gray-600 md:p-5"
             >
-              <div className="relative overflow-hidden">
-                <p className="mb-3 text-xs font-medium uppercase tracking-[0.28em] text-gray-500">
-                  {project.category}
-                </p>
+              <div className="mb-5 flex items-center justify-between text-sm uppercase tracking-[0.22em] text-gray-500">
+                <p>{project.category}</p>
+                <p>{String(index + 1).padStart(2, "0")}</p>
+              </div>
+
+              <div className="relative aspect-[3/2] overflow-hidden rounded-md bg-gray-900">
                 <Image
                   src={project.image}
                   alt={project.title}
                   width={900}
                   height={600}
-                  className="h-[280px] w-full object-cover transition-transform duration-700 group-hover:scale-105 md:h-[360px]"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
 
-                <div className="absolute inset-0 bg-black/10 transition-colors duration-500 group-hover:bg-black/30" />
+                <div className="absolute inset-0 bg-black/10 transition-colors duration-500 group-hover:bg-black/35" />
+                <span className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/60 text-lg text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  -&gt;
+                </span>
               </div>
 
-              <div className="mt-5 flex items-baseline justify-between gap-4 border-t border-gray-800 pt-4">
-                <h3 className="text-2xl leading-tight md:text-3xl">
+              <div className="mt-5 flex items-start justify-between gap-4">
+                <h3 className="font-heading text-3xl leading-tight md:text-4xl">
                   {project.title}
                 </h3>
 
-                <p className="shrink-0 text-xs uppercase tracking-[0.18em] text-gray-500">
+                <p className="shrink-0 pt-2 text-sm uppercase tracking-[0.18em] text-gray-500">
                   {project.location}
                 </p>
 
