@@ -1,7 +1,13 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { ArrowUpRight, MenuIcon } from "lucide-react";
 
 
 
@@ -97,19 +103,89 @@ export default function Navbar() {
       <Sheet>
         <SheetTrigger
           render={
-            <button className="text-lg tracking-widest md:hidden" />
+            <button
+              aria-label="Open navigation menu"
+              className="group flex items-center gap-3 border border-gray-700 px-4 py-3 text-xs uppercase tracking-[0.22em] transition-colors hover:border-[#d6b36a] hover:text-[#d6b36a] md:hidden"
+            />
           }
         >
-          Menu
+          <MenuIcon className="size-4 transition-transform duration-300 group-hover:rotate-90" />
+          <span>Menu</span>
         </SheetTrigger>
 
-        <SheetContent className="bg-[#050505] text-white border-gray-600">
-          <div className="mt-10 flex flex-col gap-6">
-            <Link href="/" className="text-2xl transition-opacity hover:opacity-50">Home</Link>
-            <Link href="/about" className="text-2xl transition-opacity hover:opacity-50">About</Link>
-            <a href="#" className="text-2xl transition-opacity hover:opacity-50">Projects</a>
-            <a href="#" className="text-2xl transition-opacity hover:opacity-50">Services</a>
-            <Link href="/contact" className="text-2xl transition-opacity hover:opacity-50">Contact</Link>
+        <SheetContent className="w-[min(88vw,28rem)] border-gray-800 bg-[#050505] px-6 py-8 text-white sm:max-w-none">
+          <div className="flex items-center justify-between border-b border-gray-800 pb-6 pr-12">
+            <Link href="/" className="font-heading text-2xl tracking-[0.16em]">
+              STUDIO<span className="text-[#d6b36a]">Z.</span>
+            </Link>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-gray-500">
+              Navigation
+            </p>
+          </div>
+
+          <nav className="mt-10 flex flex-col" aria-label="Mobile navigation">
+            <SheetClose nativeButton={false}
+              render={
+                <Link
+                  href="/"
+                  className="group flex items-center justify-between border-b border-gray-800 py-4 font-heading text-2xl transition-colors hover:text-[#d6b36a] sm:text-3xl"
+                />
+              }
+            >
+              <span>Home</span>
+              <ArrowUpRight className="size-5 text-gray-600 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[#d6b36a]" />
+            </SheetClose>
+            <SheetClose nativeButton={false}
+              render={
+                <Link
+                  href="/about"
+                  className="group flex items-center justify-between border-b border-gray-800 py-4 font-heading text-2xl transition-colors hover:text-[#d6b36a] sm:text-3xl"
+                />
+              }
+            >
+              <span>About</span>
+              <ArrowUpRight className="size-5 text-gray-600 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[#d6b36a]" />
+            </SheetClose>
+            <SheetClose nativeButton={false}
+              render={
+                <Link
+                  href="#projects"
+                  className="group flex items-center justify-between border-b border-gray-800 py-4 font-heading text-2xl transition-colors hover:text-[#d6b36a] sm:text-3xl"
+                />
+              }
+            >
+              <span>Projects</span>
+              <ArrowUpRight className="size-5 text-gray-600 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[#d6b36a]" />
+            </SheetClose>
+            <SheetClose nativeButton={false}
+              render={
+                <Link
+                  href="#services"
+                  className="group flex items-center justify-between border-b border-gray-800 py-4 font-heading text-2xl transition-colors hover:text-[#d6b36a] sm:text-3xl"
+                />
+              }
+            >
+              <span>Services</span>
+              <ArrowUpRight className="size-5 text-gray-600 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[#d6b36a]" />
+            </SheetClose>
+            <SheetClose nativeButton={false}
+              render={
+                <Link
+                  href="/contact"
+                  className="group flex items-center justify-between py-4 font-heading text-2xl transition-colors hover:text-[#d6b36a] sm:text-3xl"
+                />
+              }
+            >
+              <span>Contact</span>
+              <ArrowUpRight className="size-5 text-gray-600 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[#d6b36a]" />
+            </SheetClose>
+          </nav>
+
+          <div className="mt-auto border-t border-gray-800 pt-6 text-sm leading-relaxed text-gray-500">
+            <p>Mumbai, India</p>
+            <a href="mailto:hello@studioz.com" className="transition-colors hover:text-[#d6b36a]">
+              hello@studioz.com
+            </a>
           </div>
         </SheetContent>
       </Sheet>

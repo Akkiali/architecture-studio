@@ -87,9 +87,8 @@ export default function Home() {
             Our Work
           </h2>
 
-          <p className="max-w-md text-lg leading-relaxed text-gray-400">
-            A selection of spaces designed with a focus on
-            architecture, detail and timeless character.
+          <p className="max-w-md border-l border-[#d6b36a] pl-4 text-base leading-relaxed text-gray-400 md:max-w-sm md:text-lg">
+            Spaces shaped with clarity, character and timeless detail.
           </p>
         </div>
 
