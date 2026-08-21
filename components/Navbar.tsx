@@ -50,10 +50,10 @@ export default function Navbar() {
   return (
     <nav
       ref={navbarRef}
-      className="sticky top-0 z-50 flex min-h-14 items-center justify-start gap-5 bg-white px-5 py-3 text-black md:min-h-20 md:justify-between md:px-[8%] md:py-4"
+      className="sticky top-0 z-50 flex min-h-14 items-center justify-start gap-5 bg-white px-5 py-3 text-black lg:min-h-20 lg:justify-between lg:px-[8%] lg:py-4"
     >
       {/* LEFT DESKTOP NAVIGATION */}
-      <div className="hidden flex-1 items-center justify-end gap-7 pr-8 md:flex">
+      <div className="hidden flex-1 items-center justify-end gap-7 pr-8 lg:flex">
         <Link
           href="/"
           onClick={() => setActiveItem("home")}
@@ -128,16 +128,13 @@ export default function Navbar() {
       {/* CENTER LOGO */}
       <Link
         href="/"
-        className="brand-mark after:hidden order-2 group shrink-0 font-sans text-base font-bold tracking-[0.12em] transition-opacity hover:opacity-60 md:order-none md:text-xl"
+        className="brand-mark order-2 group shrink-0 font-heading font-medium text-3xl tracking-[0.18em] transition-opacity hover:opacity-60 lg:order-none lg:text-4xl"
       >
-        STUDIO
-        <span className="transition-colors duration-300 group-hover:text-[#d6b36a]">
-          Z.
-        </span>
+        STUDIO<span className="text-[#d6b36a]">Z.</span>
       </Link>
 
       {/* RIGHT DESKTOP NAVIGATION */}
-      <div className="hidden flex-1 items-center justify-start gap-7 pl-8 md:flex">
+      <div className="hidden flex-1 items-center justify-start gap-7 pl-8 lg:flex">
         {/* PROJECTS / PORTFOLIO DROPDOWN */}
         <div className="relative">
           <button
@@ -207,7 +204,7 @@ export default function Navbar() {
           render={
             <button
               aria-label="Open navigation menu"
-              className="order-1 flex size-5 items-center justify-center text-black transition-opacity hover:opacity-50 md:hidden"
+              className="order-1 flex size-5 items-center justify-center text-black transition-opacity hover:opacity-50 lg:hidden"
             />
           }
         >
@@ -218,10 +215,9 @@ export default function Navbar() {
           <div className="flex items-center justify-between border-b border-gray-200 pb-6 pr-12">
             <Link
               href="/"
-              className="font-sans text-base font-bold tracking-[0.12em]"
+              className="brand-mark inline-block font-heading font-medium text-3xl tracking-[0.18em]"
             >
-              STUDIO
-              <span className="text-[#d6b36a]">Z.</span>
+              STUDIO<span className="text-[#d6b36a]">Z.</span>
             </Link>
 
             <p className="text-[10px] uppercase tracking-[0.25em] text-gray-500">
