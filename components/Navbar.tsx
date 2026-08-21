@@ -128,7 +128,7 @@ export default function Navbar() {
       {/* CENTER LOGO */}
       <Link
         href="/"
-        className="brand-mark order-2 group shrink-0 font-heading font-medium text-3xl tracking-[0.18em] transition-opacity hover:opacity-60 lg:order-none lg:text-4xl"
+        className="brand-mark order-2 group shrink-0 font-heading font-medium text-2xl tracking-[0.12em] transition-opacity hover:opacity-60 lg:order-none lg:text-3xl"
       >
         STUDIO<span className="text-[#d6b36a]">Z.</span>
       </Link>
@@ -215,7 +215,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between border-b border-gray-200 pb-6 pr-12">
             <Link
               href="/"
-              className="brand-mark inline-block font-heading font-medium text-3xl tracking-[0.18em]"
+              className="brand-mark inline-block font-heading font-medium text-2xl tracking-[0.12em]"
             >
               STUDIO<span className="text-[#d6b36a]">Z.</span>
             </Link>
