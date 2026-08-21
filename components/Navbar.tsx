@@ -26,7 +26,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [activeItem, setActiveItem] = useState(() => getActiveItem(pathname));
 
-  const activeClass = "rounded-full bg-[#d6b36a] px-4 py-2 font-semibold text-black";
+  const activeClass = "rounded-full bg-black px-4 py-2 font-semibold text-white";
 
   useEffect(() => {
     setActiveItem(getActiveItem(pathname));
@@ -50,14 +50,14 @@ export default function Navbar() {
   return (
     <nav
       ref={navbarRef}
-      className="sticky top-0 z-50 flex min-h-28 items-center justify-between border-b border-gray-800 bg-[#050505] px-6 py-6 md:px-12"
+      className="sticky top-0 z-50 flex min-h-14 items-center justify-start gap-5 bg-white px-5 py-3 text-black md:min-h-20 md:justify-between md:px-[8%] md:py-4"
     >
       {/* LEFT DESKTOP NAVIGATION */}
-      <div className="hidden flex-1 items-center justify-end gap-8 pr-10 md:flex">
+      <div className="hidden flex-1 items-center justify-end gap-7 pr-8 md:flex">
         <Link
           href="/"
           onClick={() => setActiveItem("home")}
-          className={`nav-link text-lg uppercase tracking-[0.2em] transition-opacity hover:opacity-50 ${activeItem === "home" ? activeClass : ""}`}
+          className={`nav-link font-sans text-xs font-medium uppercase tracking-[0.16em] transition-opacity hover:opacity-50 ${activeItem === "home" ? activeClass : ""}`}
         >
           Home
         </Link>
@@ -65,7 +65,7 @@ export default function Navbar() {
         <Link
           href="/about"
           onClick={() => setActiveItem("about")}
-          className={`nav-link text-lg uppercase tracking-[0.2em] transition-opacity hover:opacity-50 ${activeItem === "about" ? activeClass : ""}`}
+          className={`nav-link font-sans text-xs font-medium uppercase tracking-[0.16em] transition-opacity hover:opacity-50 ${activeItem === "about" ? activeClass : ""}`}
         >
           About Us
         </Link>
@@ -78,7 +78,7 @@ export default function Navbar() {
               setActiveItem("services"))
             }
             aria-expanded={menu === "services"}
-            className={`nav-trigger group flex items-center gap-2 font-heading text-xl italic transition-colors hover:text-gray-400 ${activeItem === "services" ? activeClass : ""}`}
+            className={`nav-trigger group flex items-center gap-2 font-sans text-xs font-medium uppercase tracking-[0.16em] transition-colors hover:text-gray-500 ${activeItem === "services" ? activeClass : ""}`}
           >
             Services
 
@@ -88,7 +88,7 @@ export default function Navbar() {
           </button>
 
           {menu === "services" && (
-            <div className="absolute left-0 top-10 z-20 w-52 border border-gray-800 bg-[#050505] p-4">
+            <div className="absolute left-0 top-10 z-20 w-52 border border-gray-200 bg-white p-4 text-black shadow-lg">
               <a
                 href="#"
                 onClick={() => setMenu(null)}
@@ -128,7 +128,7 @@ export default function Navbar() {
       {/* CENTER LOGO */}
       <Link
         href="/"
-        className="brand-mark group shrink-0 font-heading text-4xl font-medium tracking-[0.18em] transition-opacity hover:opacity-60 md:text-5xl"
+        className="brand-mark after:hidden order-2 group shrink-0 font-sans text-base font-bold tracking-[0.12em] transition-opacity hover:opacity-60 md:order-none md:text-xl"
       >
         STUDIO
         <span className="transition-colors duration-300 group-hover:text-[#d6b36a]">
@@ -137,7 +137,7 @@ export default function Navbar() {
       </Link>
 
       {/* RIGHT DESKTOP NAVIGATION */}
-      <div className="hidden flex-1 items-center justify-start gap-8 pl-10 md:flex">
+      <div className="hidden flex-1 items-center justify-start gap-7 pl-8 md:flex">
         {/* PROJECTS / PORTFOLIO DROPDOWN */}
         <div className="relative">
           <button
@@ -146,7 +146,7 @@ export default function Navbar() {
               setActiveItem("portfolio"))
             }
             aria-expanded={menu === "projects"}
-            className={`nav-trigger group flex items-center gap-2 font-heading text-xl italic transition-colors hover:text-gray-400 ${activeItem === "portfolio" ? activeClass : ""}`}
+            className={`nav-trigger group flex items-center gap-2 font-sans text-xs font-medium uppercase tracking-[0.16em] transition-colors hover:text-gray-500 ${activeItem === "portfolio" ? activeClass : ""}`}
           >
             Portfolio
 
@@ -156,7 +156,7 @@ export default function Navbar() {
           </button>
 
           {menu === "projects" && (
-            <div className="absolute right-0 top-10 z-20 w-48 border border-gray-800 bg-[#050505] p-4">
+            <div className="absolute right-0 top-10 z-20 w-48 border border-gray-200 bg-white p-4 text-black shadow-lg">
               <a
                 href="#projects"
                 onClick={() => setMenu(null)}
@@ -187,7 +187,7 @@ export default function Navbar() {
         <Link
           href="/news"
           onClick={() => setActiveItem("news")}
-          className={`nav-link text-lg uppercase tracking-[0.2em] transition-opacity hover:opacity-50 ${activeItem === "news" ? activeClass : ""}`}
+          className={`nav-link font-sans text-xs font-medium uppercase tracking-[0.16em] transition-opacity hover:opacity-50 ${activeItem === "news" ? activeClass : ""}`}
         >
           News
         </Link>
@@ -195,7 +195,7 @@ export default function Navbar() {
         <Link
           href="/contact"
           onClick={() => setActiveItem("contact")}
-          className={`nav-link text-lg uppercase tracking-[0.2em] transition-opacity hover:opacity-50 ${activeItem === "contact" ? activeClass : ""}`}
+          className={`nav-link font-sans text-xs font-medium uppercase tracking-[0.16em] transition-opacity hover:opacity-50 ${activeItem === "contact" ? activeClass : ""}`}
         >
           Contact
         </Link>
@@ -207,19 +207,18 @@ export default function Navbar() {
           render={
             <button
               aria-label="Open navigation menu"
-              className="group ml-auto flex items-center gap-3 border border-gray-700 px-4 py-3 text-xs uppercase tracking-[0.22em] transition-colors hover:border-[#d6b36a] hover:text-[#d6b36a] md:hidden"
+              className="order-1 flex size-5 items-center justify-center text-black transition-opacity hover:opacity-50 md:hidden"
             />
           }
         >
           <MenuIcon className="size-4 transition-transform duration-300 group-hover:rotate-90" />
-          <span>Menu</span>
         </SheetTrigger>
 
-        <SheetContent className="w-[min(88vw,28rem)] border-gray-800 bg-[#050505] px-6 py-8 text-white sm:max-w-none">
-          <div className="flex items-center justify-between border-b border-gray-800 pb-6 pr-12">
+        <SheetContent className="w-[min(88vw,28rem)] border-gray-200 bg-white px-6 py-8 text-black sm:max-w-none">
+          <div className="flex items-center justify-between border-b border-gray-200 pb-6 pr-12">
             <Link
               href="/"
-              className="font-heading text-2xl tracking-[0.16em]"
+              className="font-sans text-base font-bold tracking-[0.12em]"
             >
               STUDIO
               <span className="text-[#d6b36a]">Z.</span>
@@ -240,7 +239,7 @@ export default function Navbar() {
                 <Link
                   href="/"
                   onClick={() => setActiveItem("home")}
-                  className={`group flex items-center justify-between border-b border-gray-800 py-4 font-heading text-2xl transition-colors hover:text-[#d6b36a] sm:text-3xl ${activeItem === "home" ? activeClass : ""}`}
+                  className={`group flex items-center justify-between border-b border-gray-200 py-4 font-sans text-2xl font-semibold transition-colors hover:text-gray-500 sm:text-3xl ${activeItem === "home" ? activeClass : ""}`}
                 />
               }
             >
@@ -255,7 +254,7 @@ export default function Navbar() {
                 <Link
                   href="/about"
                   onClick={() => setActiveItem("about")}
-                  className={`group flex items-center justify-between border-b border-gray-800 py-4 font-heading text-2xl transition-colors hover:text-[#d6b36a] sm:text-3xl ${activeItem === "about" ? activeClass : ""}`}
+                  className={`group flex items-center justify-between border-b border-gray-200 py-4 font-sans text-2xl font-semibold transition-colors hover:text-gray-500 sm:text-3xl ${activeItem === "about" ? activeClass : ""}`}
                 />
               }
             >
@@ -270,7 +269,7 @@ export default function Navbar() {
                 <Link
                   href="#services"
                   onClick={() => setActiveItem("services")}
-                  className={`group flex items-center justify-between border-b border-gray-800 py-4 font-heading text-2xl transition-colors hover:text-[#d6b36a] sm:text-3xl ${activeItem === "services" ? activeClass : ""}`}
+                  className={`group flex items-center justify-between border-b border-gray-200 py-4 font-sans text-2xl font-semibold transition-colors hover:text-gray-500 sm:text-3xl ${activeItem === "services" ? activeClass : ""}`}
                 />
               }
             >
@@ -285,7 +284,7 @@ export default function Navbar() {
                 <Link
                   href="#projects"
                   onClick={() => setActiveItem("portfolio")}
-                  className={`group flex items-center justify-between border-b border-gray-800 py-4 font-heading text-2xl transition-colors hover:text-[#d6b36a] sm:text-3xl ${activeItem === "portfolio" ? activeClass : ""}`}
+                  className={`group flex items-center justify-between border-b border-gray-200 py-4 font-sans text-2xl font-semibold transition-colors hover:text-gray-500 sm:text-3xl ${activeItem === "portfolio" ? activeClass : ""}`}
                 />
               }
             >
@@ -300,7 +299,7 @@ export default function Navbar() {
                 <Link
                   href="/news"
                   onClick={() => setActiveItem("news")}
-                  className={`group flex items-center justify-between border-b border-gray-800 py-4 font-heading text-2xl transition-colors hover:text-[#d6b36a] sm:text-3xl ${activeItem === "news" ? activeClass : ""}`}
+                  className={`group flex items-center justify-between border-b border-gray-200 py-4 font-sans text-2xl font-semibold transition-colors hover:text-gray-500 sm:text-3xl ${activeItem === "news" ? activeClass : ""}`}
                 />
               }
             >
@@ -315,7 +314,7 @@ export default function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setActiveItem("contact")}
-                  className={`group flex items-center justify-between py-4 font-heading text-2xl transition-colors hover:text-[#d6b36a] sm:text-3xl ${activeItem === "contact" ? activeClass : ""}`}
+                  className={`group flex items-center justify-between py-4 font-sans text-2xl font-semibold transition-colors hover:text-gray-500 sm:text-3xl ${activeItem === "contact" ? activeClass : ""}`}
                 />
               }
             >

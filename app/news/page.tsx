@@ -16,7 +16,7 @@ export default function News() {
 
          <article className="mt-12 max-w-3xl border-t border-gray-800 pt-6">
             <p className="text-sm uppercase tracking-[0.3em] text-gray-500">
-               Studio note / 20 August 2026
+               Studio note, / 20 August 2026
             </p>
 
             <h2 className="mt-4 text-3xl font-medium md:text-4xl">

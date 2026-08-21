@@ -1,10 +1,17 @@
 import projects from "@/data/projects";
 import Image from "next/image";
+import HeroSlider from "@/components/HeroSlider";
 
 export default function Home() {
   return (
     <main>
-      <section
+      <HeroSlider />
+
+
+
+
+
+      {/* <section
         className="relative mx-4 my-4 min-h-[70vh] overflow-hidden rounded-3xl bg-cover bg-center px-6 py-20 md:mx-8 md:my-8 md:px-12 md:py-28"
         style={{ backgroundImage: "url('/images/hero.jpg')" }}
       >
@@ -34,7 +41,7 @@ export default function Home() {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section id="services" className="px-6 py-12 md:px-12 md:py-32">
         <p className="text-lg uppercase tracking-[0.3em] text-gray-500">
